@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Lesson1_Java2NetAcademy
 {
@@ -6,7 +7,12 @@ namespace Lesson1_Java2NetAcademy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            int cantidad = 20000;
+            StringBuilder builder = new StringBuilder();
+            builder.Append("Somos más de ");
+            builder.Append(cantidad);
+            builder.Append(" globers en el mundo");
+            Console.WriteLine(builder);
         }
     }
 }
