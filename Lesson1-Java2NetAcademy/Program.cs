@@ -6,7 +6,8 @@ namespace Lesson1_Java2NetAcademy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            string mensaje = "Hello World";
+            Console.WriteLine(mensaje);
         }
     }
 }
