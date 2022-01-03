@@ -8,7 +8,7 @@ namespace Lesson1_Java2NetAcademy
     {
         static void Main(string[] args)
         {
-            int[] arrNumeros = { 5, 1, 2 };
+            int[] arrNumeros = { 3, 2, 2, 7, 9 };
             int[] arrSortAsc = OrderByAsc(arrNumeros);
             int[] arrSortDesc = OrderByDesc(arrNumeros);
             SortOrderByAscConsole(arrSortAsc);
@@ -35,7 +35,8 @@ namespace Lesson1_Java2NetAcademy
                 if(count == arr.Length)
                 {
                     arrTemp.Add(min);
-                    arr = Array.FindAll(arr, i => i != min).ToArray();
+                    int indexToRemove = Array.FindIndex(arr, x => x == min);
+                    arr = arr.Where((source, index) => index != indexToRemove).ToArray();
                     if (arr.Length == 0)
                         break;
                     min = arr[0];
@@ -66,7 +67,8 @@ namespace Lesson1_Java2NetAcademy
                 if (count == arr.Length)
                 {
                     arrTemp.Add(max);
-                    arr = Array.FindAll(arr, i => i != max).ToArray();
+                    int indexToRemove = Array.FindIndex(arr, x => x == max);
+                    arr = arr.Where((source, index) => index != indexToRemove).ToArray();
                     if (arr.Length == 0)
                         break;
                     max = arr[0];
