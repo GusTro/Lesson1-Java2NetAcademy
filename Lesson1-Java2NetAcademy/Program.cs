@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Lesson1_Java2NetAcademy
 {
@@ -8,90 +6,25 @@ namespace Lesson1_Java2NetAcademy
     {
         static void Main(string[] args)
         {
-            int[] arrNumeros = { 5, 1, 2 };
-            int[] arrSortAsc = OrderByAsc(arrNumeros);
-            int[] arrSortDesc = OrderByDesc(arrNumeros);
-            SortOrderByAscConsole(arrSortAsc);
-            Console.WriteLine("");
-            SortOrderByDescConsole(arrSortDesc);
+            string[] arrElementos = { "A", "B", "C","D" };
+            Console.Write("Escriba el elemento que quiere encontrar: ");
+            var word = Console.ReadLine();
+            FindWord(arrElementos, word.ToString());
         }
-        static int[] OrderByAsc(int[] arr)
+        
+        static void FindWord(string[] arr, string item)
         {
-            List<int> arrTemp = new List<int>();
-            int min = arr[0];
             int count = 0;
-            for(int i = 0; i < arr.Length; i++)
+            for(int i = 0; i<arr.Length; i++)
             {
-                if(min <= arr[i])
-                {
-                    count++;
-                }
+                if (item == arr[i])
+                    Console.WriteLine("Si se encontro el elemento " + item);
                 else
-                {
-                    min = arr[i];
-                    count = 0;
-                    i = -1;
-                }
-                if(count == arr.Length)
-                {
-                    arrTemp.Add(min);
-                    arr = Array.FindAll(arr, i => i != min).ToArray();
-                    if (arr.Length == 0)
-                        break;
-                    min = arr[0];
-                    i = -1;
-                    count = 0;
-                }
-            }
-            return arrTemp.ToArray();
-        }
-
-        static int[] OrderByDesc(int[] arr)
-        {
-            List<int> arrTemp = new List<int>();
-            int max = arr[0];
-            int count = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] <= max)
-                {
                     count++;
-                }
-                else
-                {
-                    max = arr[i];
-                    count = 0;
-                    i = -1;
-                }
                 if (count == arr.Length)
                 {
-                    arrTemp.Add(max);
-                    arr = Array.FindAll(arr, i => i != max).ToArray();
-                    if (arr.Length == 0)
-                        break;
-                    max = arr[0];
-                    i = -1;
-                    count = 0;
+                    Console.WriteLine("No se encontro el elemento que esta buscando");
                 }
-            }
-            return arrTemp.ToArray();
-        }
-
-        static void SortOrderByAscConsole(int[] arr)
-        {
-            Console.Write("Array Order By Asc: ");
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] +" ");
-            }
-        }
-
-        static void SortOrderByDescConsole(int[] arr)
-        {
-            Console.Write("Array Order By Desc: ");
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] + " ");
             }
         }
     }
